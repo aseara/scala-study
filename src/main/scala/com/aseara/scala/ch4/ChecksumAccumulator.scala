@@ -1,11 +1,16 @@
 package com.aseara.scala.ch4
 
 /**
- * Created with IntelliJ IDEA.
- * User: 境德
- * Date: 2015/7/11
- * Time: 17:56
- */
+  * Created with IntelliJ IDEA.
+  * User: 境德
+  * Date: 2015/7/11
+  * Time: 17:56
+  * Listing 4.2 · Companion object for class ChecksumAccumulator.
+  *
+  * Tip1: You must define both the class and its companion object in the same source file.
+  * Tip2: A class and its companion object can access each other’s private members.
+  *
+  */
 class ChecksumAccumulator {
   private var sum = 0
   def add(b: Byte) { sum += b }
@@ -24,7 +29,7 @@ object ChecksumAccumulator {
     else {
       val acc = new ChecksumAccumulator
       for (c <- s)
-        acc.add(c.toByte)
+        acc.sum += c.toByte
       val cs = acc.checksum()
       cache += (s -> cs)
       cs
