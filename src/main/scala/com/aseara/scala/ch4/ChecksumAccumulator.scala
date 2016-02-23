@@ -21,7 +21,7 @@ import scala.collection.{mutable => m}
 
 object ChecksumAccumulator {
 
-  private val cache = m.Map[String, Int]()
+  private val cache = m.WeakHashMap[String, Int]()
 
   def calculate(s : String): Int =
     if (cache.contains(s))
