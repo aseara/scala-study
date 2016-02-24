@@ -6,4 +6,6 @@ package com.aseara.scala.ch6
  * Date: 2015/7/12
  * Time: 17:43
  */
-class Rational(n: Int, d: Int)
+class Rational(n: Int, d: Int) {
+  override def toString = n +"/"+ d
+}
