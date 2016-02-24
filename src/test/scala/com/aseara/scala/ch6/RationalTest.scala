@@ -12,6 +12,4 @@ object RationalTest extends App {
 
   val b = new Rational(1, 3)
 
-  println(a.+(b))
-
 }
