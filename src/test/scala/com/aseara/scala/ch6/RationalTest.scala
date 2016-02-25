@@ -10,7 +10,9 @@ object RationalTest extends App {
 
   val a = new Rational(1, 2)
   val b = new Rational(1, 3)
+  val c = new Rational(3)
+  val d = new Rational(44, 24)
 
-  println(a add b)
+  println(d)
 
 }
