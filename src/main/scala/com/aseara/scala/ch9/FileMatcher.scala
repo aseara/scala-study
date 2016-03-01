@@ -12,15 +12,17 @@ object FileMatcher {
 
   private def filesHere = new File(".").listFiles
 
-  def filesEnding(query: String) =
-    for (file <- filesHere if file.getName.endsWith(query))
+  def fileMatching(query: String,
+                   matcher: (String, String) => Boolean) =
+    for (file <- filesHere if matcher(file.getName, query))
       yield file
+
+  def filesEnding(query: String) =
+    fileMatching(query, _.endsWith(_))
 
   def filesContaining(query: String) =
-    for (file <- filesHere if file.getName.contains(query))
-      yield file
+    fileMatching(query, _.contains(_))
 
   def filesRegex(query: String) =
-    for (file <- filesHere if file.getName.matches(query))
-      yield file
+    fileMatching(query, _.matches(_))
 }
