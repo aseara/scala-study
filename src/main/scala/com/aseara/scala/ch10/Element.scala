@@ -6,7 +6,6 @@ package com.aseara.scala.ch10
  * Date: 2015/7/14
  * Time: 10:46
  */
-
 import Element.elem
 
 abstract class Element {
@@ -29,7 +28,6 @@ abstract class Element {
     )
   }
 
-
   def widen(w: Int): Element =
     if (w <= width) this
     else {
@@ -47,7 +45,6 @@ abstract class Element {
     }
 
   override def toString = contents mkString "\n"
-
 }
 
 object Element {
@@ -71,4 +68,6 @@ object Element {
   def elem(contents: Array[String]): Element = new ArrayElement(contents)
   def elem(chr: Char, width: Int, height: Int): Element = new UniformElement(chr, width, height)
   def elem(line: String): Element = new LineElement(line)
+
+  def elem(test: Any): Element = elem("test")
 }
