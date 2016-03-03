@@ -1,7 +1,7 @@
 package com.aseara.scala.ch15
 
 import com.aseara.scala.ch10.Element
-import com.aseara.scala.ch10.Element.elm
+import com.aseara.scala.ch10.Element.elem
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,31 +40,31 @@ class ExprFormatter {
   private def format(e: Expr, enclPrec: Int): Element =
     e match {
       case Var(name) =>
-        elm(name)
+        elem(name)
       case Number(num) =>
         def stripDot(s: String) =
           if (s endsWith ".0") s.substring(0, s.length - 2)
           else s
-        elm(stripDot(num.toString))
+        elem(stripDot(num.toString))
 
       case UnOp(op, arg) =>
-        elm(op) beside format(arg, unaryPrecedence)
+        elem(op) beside format(arg, unaryPrecedence)
 
       case BinOp("/", left, right) =>
         val top = format(left, fractionalPrecedence)
         val bot = format(right, fractionalPrecedence)
-        val line = elm('_', top.width max bot.width, 1)
+        val line = elem('_', top.width max bot.width, 1)
         val frac = top above line above bot
         if (enclPrec != fractionalPrecedence) frac
-        else elm(" ") beside frac beside elm(" ")
+        else elem(" ") beside frac beside elem(" ")
 
       case BinOp(op, left, right) =>
         val opPrec = precedence(op)
         val l = format(left, opPrec)
         val r = format(right, opPrec + 1)
-        val oper = l beside elm(" " + op + " ") beside r
+        val oper = l beside elem(" " + op + " ") beside r
         if (enclPrec <= opPrec) oper
-        else elm("(") beside oper beside elm(")")
+        else elem("(") beside oper beside elem(")")
     }
 
     def format(e: Expr): Element = format(e, 0)

@@ -1,7 +1,7 @@
 package com.aseara.scala.ch14
 
 import org.scalatest.FunSuite
-import com.aseara.scala.ch10.Element.elm
+import com.aseara.scala.ch10.Element.elem
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +12,7 @@ import com.aseara.scala.ch10.Element.elm
 class ElementSuite extends FunSuite{
 
   test("elem result should have passed width") {
-    val ele = elm('x', 2, 3)
+    val ele = elem('x', 2, 3)
 
   }
 

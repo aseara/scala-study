@@ -7,22 +7,22 @@ package com.aseara.scala.ch10
  * Time: 16:10
  */
 
-import Element.elm
+import Element.elem
 
 object Spiral {
 
-  val space = elm(" ")
-  val corner = elm("+")
+  val space = elem(" ")
+  val corner = elem("+")
 
   def spiral(nEdges: Int, direction: Int): Element = {
 
     if (nEdges == 1)
-      elm("+")
+      elem("+")
     else {
 
       val sp = spiral(nEdges - 1, (direction + 3) % 4)
-      def verticalBar = elm('|', 1, sp.height)
-      def horizontalBar = elm('-', sp.width, 1)
+      def verticalBar = elem('|', 1, sp.height)
+      def horizontalBar = elem('-', sp.width, 1)
 
       if (direction == 0)
         (corner beside horizontalBar) above (sp beside space)

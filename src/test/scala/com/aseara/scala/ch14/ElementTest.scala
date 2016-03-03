@@ -3,7 +3,7 @@ package com.aseara.scala.ch14
 import org.junit.Assert._
 import org.junit.Test
 
-import com.aseara.scala.ch10.Element.elm
+import com.aseara.scala.ch10.Element.elem
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,12 +15,12 @@ class ElementTest {
 
   @Test
   def uniformElementTest(): Unit = {
-    val ele = elm('x', 2, 3)
+    val ele = elem('x', 2, 3)
     assertEquals(2, ele.width)
     assertEquals(3, ele.height)
 
     try {
-      elm('x', -2, 3)
+      elem('x', -2, 3)
       fail()
     } catch {
       case e: IllegalArgumentException => // expected
