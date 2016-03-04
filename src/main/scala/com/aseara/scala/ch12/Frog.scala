@@ -8,6 +8,13 @@ package com.aseara.scala.ch12
   * Listing 12.2 · Mixing in a trait using extends.
   */
 
-class Frog extends Philosophical {
+class Animal
+trait HasLegs
+
+class Frog extends Animal with Philosophical with HasLegs {
   override def toString = "green"
+
+  override def philosophize(): Unit = {
+    println("It ain't easy being " + toString + "!")
+  }
 }
