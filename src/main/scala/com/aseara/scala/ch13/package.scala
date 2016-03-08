@@ -8,4 +8,6 @@ package com.aseara.scala
  */
 package object ch13 {
 
+  assert(true)
+
 }
