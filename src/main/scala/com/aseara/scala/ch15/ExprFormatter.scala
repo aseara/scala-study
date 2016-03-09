@@ -53,7 +53,7 @@ class ExprFormatter {
       case BinOp("/", left, right) =>
         val top = format(left, fractionalPrecedence)
         val bot = format(right, fractionalPrecedence)
-        val line = elem('_', top.width max bot.width, 1)
+        val line = elem('-', top.width max bot.width, 1)
         val frac = top above line above bot
         if (enclPrec != fractionalPrecedence) frac
         else elem(" ") beside frac beside elem(" ")
@@ -67,5 +67,5 @@ class ExprFormatter {
         else elem("(") beside oper beside elem(")")
     }
 
-    def format(e: Expr): Element = format(e, 0)
+  def format(e: Expr): Element = format(e, 0)
 }

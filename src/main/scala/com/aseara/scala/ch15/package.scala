@@ -23,12 +23,13 @@ package object ch15 {
       simplifyAll(e)
     case BinOp("*", e, Number(1)) =>
       simplifyAll(e)
+    case UnOp("abs", e @ UnOp("abs", _)) =>
+      simplifyAll(e)
     case UnOp(op, e) =>
       UnOp(op, simplifyAll(e))
     case BinOp(op, l, r) =>
       BinOp(op, simplifyAll(l), simplifyAll(r))
     case _ => expr
-
   }
 
 }

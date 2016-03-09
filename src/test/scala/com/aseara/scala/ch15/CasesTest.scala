@@ -15,4 +15,38 @@ object CasesTest extends App {
   println(v.name)
   println(op.left)
 
+  println(op)
+  assert(op.left == Var("x"))
+
+  val copy = op.copy(operator = "-")
+  op.copy(right = Var("+"))
+
+  def test(expr: Expr) = expr match {
+    case BinOp(op, left, right) =>
+      println(expr + " is a binary operation")
+    case _ =>
+  }
+
+  def test2(expr: Expr) = expr match {
+    case BinOp(_, _, _) =>
+      println(expr + " is a binary operation")
+    case _ =>
+  }
+
+  def test3(expr: Any) = expr match {
+    case List(0, _, _) => println("found it")
+    case _ =>
+  }
+
+  def test4(expr: Any) = expr match {
+    case List(0, _*) => println("found it")
+    case _ =>
+  }
+
+  def tupleDemo(expr: Any) =
+    expr match {
+      case (a, b, c) => println("matched" + a + b + c)
+      case _ =>
+    }
+
 }
