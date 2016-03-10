@@ -20,16 +20,16 @@ package object ch16 {
       else y :: insert(x, ys)
   }
 
-  def append[T](xs: List[T], ys: List[T]): List[T] =
-    xs match {
-      case List() => ys
-      case x :: xs1 => x :: append(xs1, ys)
-    }
+  def append[T](xs: List[T], ys: List[T]): List[T] = xs match {
+    case List() => ys
+    case x :: xs1 => x :: append(xs1, ys)
+  }
 
   def rev[T](xs: List[T]): List[T] = xs match {
     case List() => xs
     case x :: xs1 => rev(xs1) ::: List(x)
   }
+
 
   def msort[T](less: (T, T) => Boolean)
               (xs: List[T]): List[T] = {
@@ -51,5 +51,16 @@ package object ch16 {
     }
 
   }
+
+  def hasZeroRow(m: List[List[Int]]) =
+    m exists(_ forall (_ == 0))
+
+  def sum(xs: List[Int]): Int = (0 /: xs)(_ + _)
+
+  def append2[T](xs: List[T], ys: List[T]): List[T] =
+    (xs :\ ys)(_ :: _)
+
+  def rev2[T](xs: List[T]): List[T] =
+    (List[T]() /: xs){(ys, y) => y :: ys}
 
 }
