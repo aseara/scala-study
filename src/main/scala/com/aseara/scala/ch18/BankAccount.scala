@@ -1,7 +1,5 @@
 package com.aseara.scala.ch18
 
-import java.time.temporal.TemporalAmount
-
 /**
  * Created with IntelliJ IDEA.
  * User: 境德

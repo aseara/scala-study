@@ -12,4 +12,6 @@ object CollectionTest extends App {
 
   println(longestWord("The quick brown fox".split(" ")))
 
+  println(longestWord("The quick brown fox".split(" ").toList))
+
 }
