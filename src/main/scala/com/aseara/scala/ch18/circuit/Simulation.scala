@@ -21,7 +21,18 @@ abstract class Simulation {
     agenda = insert(agenda, item)
   }
   private def next(): Unit = {
-
+    (agenda: @unchecked) match {
+      case item :: rest =>
+        agenda = rest
+        curtime = item.time
+        item.action()
+    }
+  }
+  def run(): Unit = {
+    afterDelay(0) {
+      println("*** simulation started, time = "+ currentTime +" ***")
+    }
+    while (agenda.nonEmpty) next()
   }
 
 }
