@@ -8,15 +8,13 @@ package com.aseara.scala.ch20
  */
 class Food
 
-abstract class Animal {
-  type SuitableFood <: Food
+abstract class Animal[SuitableFood <: Food] {
   def eat(food: SuitableFood)
 }
 
 class Grass extends Food
 
-class Cow extends Animal {
-  override type SuitableFood = Grass
+class Cow extends Animal[Grass] {
   override def eat(food: Grass) {}
 }
 

@@ -15,7 +15,7 @@ object Library {
       new Book("Walden")
     )
 
-  def printBookList(info: Book => AnyRef): Unit = {
+  def printBookList(info: Book => AnyRef) {
     for (book <- books) println(info(book))
   }
 }

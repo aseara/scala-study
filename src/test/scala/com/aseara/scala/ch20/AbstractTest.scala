@@ -1,5 +1,8 @@
 package com.aseara.scala.ch20
 
+import java.io.PrintWriter
+import java.util.Date
+
 /**
  * Created with IntelliJ IDEA.
  * User: 境德
@@ -8,16 +11,20 @@ package com.aseara.scala.ch20
  */
 object AbstractTest extends App {
 
-  class Fish extends Food
+  val X = 20
 
-  val bessy: Animal = new Cow
-  val grass = new Grass
-  // bessy eat new bessy.SuitableFood
+  new {
+    val numerArg = 1 * X
+    val denomArg = 2 * X
+  } with RationalTrait
+
+  object twoThirds extends {
+    val numerArg = 2
+    val denomArg = 3
+  } with RationalTrait
 
 
-  type eatGrassAnimal = Animal { type SuitableFood = Grass }
-
-  var animals: List[eatGrassAnimal] = Nil
-
-  bessy :: animals
+  using(new PrintWriter("date.txt")) { writer =>
+    writer.println(new Date)
+  }
 }
