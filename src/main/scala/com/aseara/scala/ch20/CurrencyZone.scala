@@ -28,7 +28,8 @@ abstract class CurrencyZone {
       ))
 
     override def toString =
-      (amount.toDouble / CurrencyUnit.amount.toDouble) formatted ("%." + decimals(CurrencyUnit.amount) + "f") + s" $designation"
+      (amount.toDouble / CurrencyUnit.amount) formatted ("%." + decimals(CurrencyUnit.amount) + "f") +
+      s" $designation"
 
     private def decimals(n: Long): Int =
       if (n == 1) 0 else 1 + decimals(n / 10)
@@ -90,5 +91,7 @@ object Converter {
     "CHF" -> Map("USD" -> 0.8108, "EUR" -> 0.6160,
                  "JPY" -> 0.982 , "CHF" -> 1.0 )
   )
+
+  Predef.assert(true)
 
 }
