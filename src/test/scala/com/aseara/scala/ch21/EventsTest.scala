@@ -13,6 +13,8 @@ object EventsTest extends App {
     (_: ActionEvent) => println("pressed!")
   )
 
+
+
   implicit def function2ActionListener(f: ActionEvent => Unit): ActionListener =
     new ActionListener {
       override def actionPerformed(event: ActionEvent) {
